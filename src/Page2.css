@@ -74,3 +74,52 @@
   border-radius: 6px;
   opacity: 1;
 }
+.time
+{
+  font: normal normal bold 20px/24px Lato;
+  width:"46px";
+  height: "24px";
+   left: "348px";
+   opacity: 1;
+   color: #686868;
+   line-height: 4;
+}
+
+.timeI{
+  background: #F6F6F6 0% 0% no-repeat padding-box;
+border: 1px solid #B2B2B2;
+border-radius: 8px;
+opacity: 1;
+width: 100px;
+height: 56px;
+}
+
+#from{
+  font:'20px Lato';
+  width:"46px";
+  height: "24px";
+  margin-Top:"33px"
+}
+
+#to
+{
+  margin-left:205px;
+  font:'20px Lato';
+  width:"21px";
+  height: "24px";
+   left: "599px";
+  
+}
+#select{
+  width:"100px";
+  height: "56px";
+  border-Radius: '8px' ;
+  margin-Top:"13px";
+}
+#selectleft{
+  margin-left:205px;
+  width:"100px";
+  height: "56px";
+  border-Radius: '8px' ;
+  
+}
