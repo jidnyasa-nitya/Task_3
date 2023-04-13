@@ -6,7 +6,7 @@ import {useState, useContext}  from 'react';
 import Page1 from './Try_change';
 import Input_Form from './Page2';
 import Blank from './Blank';
-import './index.css';
+import './index.css' ;
 
 export default function App() {
   const [index, setIndex] = useState();

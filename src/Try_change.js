@@ -32,11 +32,12 @@ function Page1({setIndex, data, setObj, index, setIsVisible, isVisible}){
               {address.AdressLine1}<br/>
               Phone: {address.phone}, Email: {address.email}<br/>
               {address.city}, {address.state}<br/> 
-              Zip Code: {address.zipcode}, {address.country}
+              Zip Code: {address.zipcode}, {address.country} 
                
               
               </section><br/><br/>
               <label id="lb2">Timings</label><br/><br/>
+              to  & to
               <section id="time" ></section>
                </span>)
             })

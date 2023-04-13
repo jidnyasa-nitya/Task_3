@@ -11,7 +11,7 @@ export let datab = [
     AdressLine1: "1395 Park Avenue",
     AddressLIne2: "",
     phone: "+1442918940",
-    email: "hawk90@gmail.com",
+    email: "mailto:hawk90@gmail.com",
     city: "sacramento",
     state: "California",
     zipcode: "95814",
@@ -30,14 +30,26 @@ function Input_Form({
   setIndex,
   count,
   setCount,
+  
 }) {
   console.log(obj);
-  const[time,setTime]=useState({from:"",toh:"",from1:"",toh1:""});
+  // const [time,setTime]=useState({fromh:"1",fromm:"20",toh:"5",tom:"55"});
+  const [times ,settimes] =useState();
   const[bolin,setbolin]=useState(true);
+  // let bolin=true;
   const handleclick = ()=>{
-      setbolin(false);
+      setbolin(!bolin);
+      // bolin=!bolin;
+      console.log(bolin);
    }
-  
+  //  function handletime (e){
+  //   setTime({ ...time, [e.target.name]: e.target.value });
+    
+  // };
+  // const [hourarray,sethourarray]=useState(["0","1","2","3","4","5","6","7","8","9","10","11","12"]);
+  // const [minutearray,setminutearray]=useState(["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17"
+  //   ,"18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41",
+  //   "42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"]);
   const [address, setaddress] = useState(obj);
   const [country1, setcountry] = useState([
     "Afghanistan",
@@ -131,11 +143,8 @@ function Input_Form({
     "Iran",
     "Iraq",
     "Ireland",
-    "Isle of Man",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
+    "Isle of Man","Israel",
+    "Italy","Jamaica","Japan",
     "Jersey",
     "Jordan",
     "Kazakhstan",
@@ -317,41 +326,49 @@ function Input_Form({
   }
   function Page5() {
     const[array,setarray]=useState([]);
-    const [time,settime]=useState({from:"",to:""});
-    const selects =(e)=>
-    {
-      console.log(e.target.value)
-      console.log(e.target.id)
-      settime({...time,[e.target.id]:e.target.value});
-    }
-  
-    const [hourarray,sethourarray]=useState([]);
-    for(let i=0;i<=12;i++)
-    {
-      hourarray.push(i)
-    }
-   const [minutearray,setminutearray]=useState([]);
-     for(let i=0;i<=60;i++)
-     {
-       minutearray.push(i)
-     }
-  console.log(time)
+   
+    const [hourarray,sethourarray]=useState(["0","1","2","3","4","5","6","7","8","9","10","11","12"]);
+    const [minutearray,setminutearray]=useState(["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17"
+      ,"18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41",
+      "42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"]);
+      const [time1,setTime1]=useState({fromh:"",fromm:"",toh:"",tom:""});
+      function handletime (e){
+        setTime1({ ...time1, [e.target.name]: e.target.value });
+      
+       
+      };
+      //   const [hourarray,sethourarray]=useState([]);
+  //   for(let i=0;i<=12;i++)
+  //   {
+  //     hourarray.push(i)
+  //   }
+  //  const [minutearray,setminutearray]=useState([]);
+  //    for(let i=0;i<=60;i++)
+  //    {
+  //      minutearray.push(i)
+  //    }
+  console.log(time1);
+
    return (
   <div>
   
-     <div  className="leftside" >
-        <label style={{font:'14px Lato',width:"46px",height: "24px", left: "348px"}}>From</label>  <label  id ="to" style={{font:'14px Lato',width:"21px",height: "24px", left: "599px"}}>To</label> <br/>
-                     <select  onChange={e=>selects(e)} style={{width:"80px",height: "56px",borderRadius: '8px'  }}>  
+     <div  id="leftside" >
+        <label style={{font:'20px Lato',width:"46px",height: "24px", marginTop:"33px"}}>From</label>  <label  id ="to" style={{font:'20px Lato',width:"21px",height: "24px", left: "599px"}}>To</label> <br/>
+                  <select   name="fromh" onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginTop:"13px" }}>  
+                    
                      {
                            hourarray.map((info) => { 
+                            
+                         
                                    return(
-                                     <option  id="from" value={info}>{info}</option>
+
+                                     <option   name="fromh" value={info}>{info}</option>
                                    )
                                    }
                              )
                        }
                      </select>{' '}
-                     <select onChange={e=>selects(e)} style={{width:"80px",height: "56px",borderRadius: '8px'}}> 
+                      <select  name="fromm"  onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginLeft:"16px"}}> 
                      {
                              minutearray.map((info) => { 
                                    return(
@@ -362,7 +379,7 @@ function Input_Form({
                        }
                      </select>{" "}
                      
-                       <select onChange={e=>selects(e)} id="mar" style={{width:"80px",height: "56px" ,borderRadius: '8px' }}>  
+                       <select name="toh"  onChange={handletime} id="mar" style={{width:"100px",height: "56px" ,borderRadius: '8px' ,marginLeft:"35px"}}>  
                          {
                                hourarray.map((info) => { 
                                        return(
@@ -373,7 +390,7 @@ function Input_Form({
                            }
                          </select>{' '}
                          
-                     <select  onChange={e=>selects(e)} style={{width:"80px",height: "56px",borderRadius: '8px'}}> 
+                     <select name="tom"  onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px',marginLeft:"16px"}}>
                      {
                              minutearray.map((info) => { 
                                    return(
@@ -384,80 +401,159 @@ function Input_Form({
                        }
                      </select>{' '}
   
-                      <br/><br/>  
-             </div> 
-                      
-     </div>
-   )
-  }
-  function Page4() {
+                      <br/><br/>   
+                      <div>
 
-    const [hourarray,sethourarray]=useState([]);
-    for(let i=0;i<=12;i++)
-    {
-      hourarray.push(i)
-    }
-   const [minutearray,setminutearray]=useState([]);
-     for(let i=0;i<=60;i++)
-     {
-       minutearray.push(i)
-     }
-   return (
+
  <div>
- 
-     <div  className="leftside" >
-     <label id="from">From</label>  <label  id ="to" >To</label> <br/>
-                     <select id="select">  
+
+ <label style={{font:'20px Lato',width:"46px",height: "24px", marginTop:"33px"}}>From</label>  <label  id ="to" style={{font:'20px Lato',width:"21px",height: "24px", left: "599px"}}>To</label> <br/>
+                  <select   name="fromh" onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginTop:"13px" }}>  
                      {
                            hourarray.map((info) => { 
                                    return(
-                                     <option value={info}>{info}</option>
+                                     <option  value={info}>{info}</option>
                                    )
                                    }
                              )
                        }
                      </select>{' '}
-                     <select  name="fromm"  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginLeft:"16px"}}> 
+                     <select  name="fromm"  onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginLeft:"16px"}}> 
                      {
                              minutearray.map((info) => { 
                                    return(
-                                     <option value={info}>{info}</option>
+                                     <option  name="fromm"  value={info}>{info}</option>
                                    )
                                    }
                              )
                        }
                      </select>{" "}
                      
-                       <select  id="mar" style={{width:"100px",height: "56px" ,borderRadius: '8px' }}>  
+                     <select name="toh" onChange={handletime} id="mar" style={{width:"100px",height: "56px" ,borderRadius: '8px' ,marginLeft:"35px"}}>  
                          {
                                hourarray.map((info) => { 
                                        return(
-                                         <option value={info}>{info}</option>
+                                         <option  name="toh" value={info}>{info}</option>
                                        )
                                        }
                                  )
                            }
                          </select>{' '}
                          
-                     <select style={{width:"100px",height: "56px",borderRadius: '8px'}}> 
+                         <select name="tom"  onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px',marginLeft:"16px"}}>
                      {
                              minutearray.map((info) => { 
                                    return(
-                                     <option value={info}>{info}</option>
+                                     <option name="tom" value={info}>{info}</option>
                                    )
                                    }
                              )
                        }
                      </select>{' '}
+                     <button   id="addtime" ><IoCloseCircleOutline color="#0078D4" style={{height:"27px",width:"27px"}} /></button> <br/><br/>   
                    
                      
              </div> 
                       
      </div>
+             </div> 
+                      
+     </div>
+
+     
    )
- }
+  }
+//   function Page4() {
+//     // const [time1,settime1]=useState({fromh:"",fromm:"",toh:"",tom:""});
+//     // const selects =(e)=>
+//     // {
+//     //   console.log(e.target.value)
+//     //   console.log(e.target.id)
+//     //   settime({...time,[e.target.id]:e.target.value});
+//     // }
+//     const [time2,setTime2]=useState({fromh:"",fromm:"",toh:"",tom:""});
+//       function handletime (e){
+//         setTime2({ ...time2, [e.target.name]: e.target.value });
+//         // console.log(time1);
+//         console.log(time2);
+//       };
+//     // function handletime (e){
+//     //   settime1({ ...time1, [e.target.name]: e.target.value });
+//     //   console.log("in hsndletik");
+//     //   console.log(time1)
+//     // };
+//     const [hourarray,sethourarray]=useState([]);
+//     for(let i=0;i<=12;i++)
+//     {
+//       hourarray.push(i)
+//     }
+//    const [minutearray,setminutearray]=useState([]);
+//      for(let i=0;i<=60;i++)
+//      {
+//        minutearray.push(i)
+//      }
+//      console.log(time2);
+//    return (
+//  <div>
+//  <div>
+//  <label style={{font:'20px Lato',width:"46px",height: "24px", marginTop:"33px"}}>From</label>  <label  id ="to" style={{font:'20px Lato',width:"21px",height: "24px", left: "599px"}}>To</label> <br/>
+//                   <select   name="fromh" onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginTop:"13px" }}>  
+//                      {
+//                            hourarray.map((info) => { 
+//                                    return(
+//                                      <option  value={info}>{info}</option>
+//                                    )
+//                                    }
+//                              )
+//                        }
+//                      </select>{' '}
+//                      <select  name="fromm"  onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px' ,marginLeft:"16px"}}> 
+//                      {
+//                              minutearray.map((info) => { 
+//                                    return(
+//                                      <option  name="fromm"  value={info}>{info}</option>
+//                                    )
+//                                    }
+//                              )
+//                        }
+//                      </select>{" "}
+                     
+//                      <select name="toh" onChange={handletime} id="mar" style={{width:"100px",height: "56px" ,borderRadius: '8px' ,marginLeft:"35px"}}>  
+//                          {
+//                                hourarray.map((info) => { 
+//                                        return(
+//                                          <option  name="toh" value={info}>{info}</option>
+//                                        )
+//                                        }
+//                                  )
+//                            }
+//                          </select>{' '}
+                         
+//                          <select name="tom"  onChange={handletime}  style={{width:"100px",height: "56px",borderRadius: '8px',marginLeft:"16px"}}>
+//                      {
+//                              minutearray.map((info) => { 
+//                                    return(
+//                                      <option name="tom" value={info}>{info}</option>
+//                                    )
+//                                    }
+//                              )
+//                        }
+//                      </select>{' '}
+//                      <button   id="addtime" ><IoCloseCircleOutline color="#0078D4" style={{height:"27px",width:"27px"}} /></button> <br/>  
+                   
+                     
+//              </div> 
+                      
+//      </div>
+//    )
+//  }
 
   function saveData() {
+ 
+  //   console.log("in save")
+  //  console.log(time)
+  settimes("g");
+  console.log(times);
     setData([
       ...data,
       {
@@ -469,6 +565,7 @@ function Input_Form({
         state,
         zipcode,
         country,
+    
       },
     ]);
 
@@ -577,10 +674,10 @@ function Input_Form({
                     onChange={handlechange}
                   >
                     <option>select Country</option>
-                    {country1.map((info) => {
+                    {country1.map((val) => {
                       return (
-                        <option name="country" value={info}>
-                          {info}
+                        <option name="country" value={val}>
+                          {val}
                         </option>
                       );
                     })}
@@ -590,14 +687,14 @@ function Input_Form({
               </p>
             </div>
           </div>
-          <div><div id ="display"><p id="Tlbl" style={{font:'22px Lato'}} >Timings</p><Page5/>{bolin ?
+          <div><div id ="display"><p id="Tlbl" style={{font:'24px Lato'}} >Timings</p><Page5/>{bolin ?
     <div>
-     
-   <button id="button" onClick={handleclick}><IoAddCircleOutline Add-Timing color="#0078D4" /><u>Add Timings</u></button>
+     <br/>
+   <button id="addtime" onClick={handleclick}><IoAddCircleOutline Add-Timing color="#0078D4" /><u>Add Timings</u></button>
     
    </div>
     : <span>
-    <Page4/> <button id="button" onClick={handleclick}><IoAddCircleOutline Add-Timing color="#0078D4" /><u>Add Timings</u></button>
+    <Page5/> <br/><button id="addtime" onClick={handleclick}><IoAddCircleOutline Add-Timing color="#0078D4" /><u>Add Timings</u></button>
     </span>
     
   }
@@ -614,13 +711,14 @@ function Input_Form({
             </Link>
           ) : (
             <Link to="/">
-              <button onClick={update} className="button">
-                update
-              </button>{" "}
-              <button className="button" onClick={Cancel}>
-                Cancel
-              </button>
-            </Link>
+            <button className="button1" onClick={Cancel}>
+              Cancel
+            </button>
+            <button onClick={update} className="button">
+              Update
+            </button>{" "}
+            
+          </Link>
           )}
         </div>
       </div>
